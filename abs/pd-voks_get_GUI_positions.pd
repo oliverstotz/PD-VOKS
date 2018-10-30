@@ -1,0 +1,106 @@
+#N canvas 732 347 462 583 10;
+#X obj 237 85 text define \$0-patch;
+#X msg 400 68 clear;
+#X obj 25 139 route list;
+#X obj 25 162 route #X;
+#X obj 25 185 route obj;
+#X obj 25 209 list split 2;
+#X obj 25 115 text get \$0-patch;
+#X obj 25 38 t b b;
+#X obj 64 38 text size \$0-patch;
+#X obj 25 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 25 90 t f f;
+#X obj 67 90 s \$0-count;
+#X obj 25 65 for++ 0 20 1;
+#X floatatom 121 66 5 0 0 0 - - -, f 5;
+#X obj 122 157 r \$0-count;
+#X floatatom 122 184 5 0 0 0 - - -, f 5;
+#X floatatom 170 76 5 0 0 0 - - -, f 5;
+#X msg 207 156 clear;
+#X obj 121 327 text get \$0-patch;
+#X obj 154 537 text insert \$0-pos;
+#X obj 207 281 r \$0-count;
+#X obj 121 350 t l l;
+#X msg 176 371 \$3 \$4;
+#X obj 154 515 list;
+#X msg 120 371 \$9;
+#X obj 121 282 list prepend;
+#X obj 121 304 unpack;
+#X msg 167 304 set \, adddollar \$1;
+#X msg 88 258 13;
+#X msg 146 257 9;
+#X obj 207 179 text define -k \$0-pos;
+#A set moveguis-r 802 170 \; movebgnd-r 802 145 \; delay/pan-r 478
+453 \; mixer/noise-r 435 332 \; mixer/osc2-r 290 332 \; mixer/osc1-r
+207 333 \; mod/mode-r 122 97 \; time-r 720 95 \; filt/type-r 644 229
+\; OSC2/wave-r 431 97 \; OSC2/oct-r 364 97 \; OSC1/wave-r 277 98 \;
+OSC1/oct-r 211 98 \; filt/adsr/d-r 545 115 \; filt/adsr/r-r 600 115
+\; filt/adsr/s-r 572 115 \; filt/adsr/a-r 517 115 \; amp/adsr/d-r 240
+418 \; amp/adsr/r-r 297 418 \; amp/adsr/s-r 269 418 \; amp/adsr/a-r
+211 418 \; filter/line-r 649 175 \; filter/inf-r 649 108 \; mixer/wp-r
+607 746 \; amp/inf-r 399 443 \; amp/tog-r 436 406 \; delay/tog-r 475
+405 \; global/velo-r 90 439 \; global/poly-r 90 368 \; phasor/tog-r
+672 405 \; phaser/mix2-r 743 451 \; phaser/mix1 704 451 \; phaser/fb-r
+745 404 \; OSC2/pw-r 410 202 \; OSC1/pw-r 258 201 \; global/panmod-r
+91 296 \; del/mix-r 617 424 \; del/fb-r 556 424 \; filt/adsr-r 590
+312 \; filt/mod-r 524 312 \; filt/cut-r 523 234 \; filt/res-r 590 235
+\; glob/pan-r 139 434 \; glob/vol-r 32 435 \; glob/glis-r 33 307 \;
+glob/tune-r 139 308 \; amp/mod-r 345 422 \; OSC2/pitch-r 451 233 \;
+OSC2/mod-r 365 232 \; OSC1/mod-r 215 232 \; OSC1/osc2-r 298 232 \;
+mod/pm-r 32 198 \; mod/freq-r 33 120 \;;
+#X obj 120 447 list fromsymbol;
+#X obj 120 469 list split 3;
+#X obj 154 493 list tosymbol;
+#X obj 120 393 symbol;
+#X obj 237 36 loadbang;
+#X obj 59 232 sel hsl vsl nbx tgl vradio hradio;
+#X text 204 469 remove \$0-;
+#X msg 194 257 11;
+#X obj 120 418 sel empty;
+#X msg 237 63 read pdv_interface.pd;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 1 36 0;
+#X connect 6 0 2 0;
+#X connect 7 0 12 0;
+#X connect 7 1 8 0;
+#X connect 7 1 17 0;
+#X connect 8 0 12 1;
+#X connect 8 0 13 0;
+#X connect 9 0 7 0;
+#X connect 10 0 6 0;
+#X connect 10 1 11 0;
+#X connect 12 0 10 0;
+#X connect 14 0 15 0;
+#X connect 16 0 10 0;
+#X connect 17 0 30 0;
+#X connect 18 0 21 0;
+#X connect 20 0 25 1;
+#X connect 21 0 24 0;
+#X connect 21 1 22 0;
+#X connect 22 0 23 1;
+#X connect 23 0 19 0;
+#X connect 24 0 34 0;
+#X connect 25 0 26 0;
+#X connect 26 0 18 0;
+#X connect 26 1 27 0;
+#X connect 27 0 24 0;
+#X connect 28 0 25 0;
+#X connect 29 0 25 0;
+#X connect 31 0 32 0;
+#X connect 32 1 33 0;
+#X connect 33 0 23 0;
+#X connect 34 0 39 0;
+#X connect 35 0 40 0;
+#X connect 36 0 28 0;
+#X connect 36 1 28 0;
+#X connect 36 2 28 0;
+#X connect 36 3 29 0;
+#X connect 36 4 38 0;
+#X connect 36 5 38 0;
+#X connect 38 0 25 0;
+#X connect 39 1 31 0;
+#X connect 40 0 0 0;
